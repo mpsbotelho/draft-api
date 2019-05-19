@@ -1,6 +1,7 @@
 import * as Express from "express";
 import Routes from "./routes";
-import { RouterMiddleware } from "./core/router-middleware";
+import { RouterMiddleware } from "./lib/core/router-middleware";
+import config from "./lib/environment/configuration";
 
 export class Server {
 
@@ -14,9 +15,9 @@ export class Server {
 
     public start() {
         this.loadConfiguration();
-        this.application = this.express.listen(3000, () => {
-            console.log("Starting the application");
-            console.log("Listening at X:3000");
+        this.application = this.express.listen(config.server.port, () => {
+            console.log(`Starting ${config.server.name}`);
+            console.log(`Listening at localhost:${config.server.port}`);
         });
     }
 
