@@ -4,13 +4,10 @@ import * as GetEnv from "getenv";
 
 export class Configuration {
 
-  public static _instance: Configuration;
+  public static instance: Configuration;
 
-  constructor(
-  ) { }
-
-  public static get Instance() {
-    return this._instance || (this._instance = new this());
+  public static get Instance(): Configuration {
+    return this.instance || (this.instance = new this());
   }
 
   public get(): IConfig {
@@ -22,7 +19,7 @@ export class Configuration {
           port: GetEnv.int("SERVICE_PORT"),
           apiKey: GetEnv.string("API_KEY")
         }
-      }
+      };
     } catch (err) {
       console.error(err);
     }

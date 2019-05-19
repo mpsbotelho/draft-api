@@ -5,5 +5,5 @@ export interface IConfigServer {
 }
 
 export interface IConfig {
-  server: IConfigServer
+  server: IConfigServer;
 }

@@ -13,7 +13,7 @@ export class Server {
         this.express = Express();
     }
 
-    public start() {
+    public start(): void {
         this.loadConfiguration();
         this.application = this.express.listen(config.server.port, () => {
             console.log(`Starting ${config.server.name}`);

@@ -6,7 +6,7 @@ export class Api {
     private readonly application = new Server()
   ) { }
 
-  public main() {
+  public main(): void {
     this.application.start();
   }
 }

@@ -3,9 +3,9 @@ import config from "../environment/configuration";
 
 export class RouterMiddleware {
 
-  public static apiKeyValidator(req: Request, res: Response, next: NextFunction) {
+  public static apiKeyValidator(req: Request, res: Response, next: NextFunction): Response | void {
     if (req.get("x-api-key") !== config.server.apiKey) {
-      return res.status(401).send(); 
+      return res.status(401).send();
     }
     return next();
   }
