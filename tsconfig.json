@@ -1,7 +1,9 @@
 // https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
 {
   "compilerOptions": {
-    "target": "es5",
+    "experimentalDecorators": true, // TODO(mpsbotelho)
+    "emitDecoratorMetadata": true,
+    "target": "ES2016",
     "module": "commonjs",
     "outDir": "dist",
     "removeComments": true,
