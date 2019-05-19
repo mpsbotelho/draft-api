@@ -1,5 +1,6 @@
 import * as Express from "express";
 import Routes from "./routes";
+import { RouterMiddleware } from "./core/router-middleware";
 
 export class Server {
 
@@ -24,6 +25,6 @@ export class Server {
     }
 
     private loadConfiguration(): void {
-        this.express.use("/", Routes);
+        this.express.use("/", RouterMiddleware.apiKeyValidator, Routes);
     }
 }
