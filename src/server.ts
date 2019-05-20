@@ -2,7 +2,7 @@ import * as Express from "express";
 import Routes from "./routes";
 import config from "./shared/environment/configuration";
 import { Database } from "./db/database";
-import { RouterMiddleware } from "./shared/core/router-middleware";
+import { RouterMiddleware } from "./shared/middlewares/router-middleware";
 
 export class Server {
 
