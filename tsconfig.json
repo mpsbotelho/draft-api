@@ -20,7 +20,7 @@
       "./node_modules/@types",
       "./node_modules/@types/express",
       "./node_modules/@types/chai-as-promised",
-      "./src/lib/typings/nodejs.d"
+      "src/shared/typings/nodejs.d"
     ]
   },
   "include": [

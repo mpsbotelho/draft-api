@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 import { Options } from "sequelize/types";
 import { UserDb } from "./models";
-import config from "../lib/environment/configuration";
+import config from "../shared/environment/configuration";
 
 // TODO(mpsbotelho) study this class to keep api more reliable and deal with scalability, should it be singleton? should create a factory with connection pool? ....
 export class Database {
