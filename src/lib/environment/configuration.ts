@@ -13,8 +13,8 @@ export class Configuration {
   public get(): IConfig {
     try {
       DotEnv.config();
-      console.log(JSON.stringify(process.env));
-      return {
+
+      const teste = {
         server: {
           name: GetEnv.string("SERVICE_NAME"),
           port: GetEnv.int("SERVICE_PORT"),
@@ -29,6 +29,9 @@ export class Configuration {
           password: GetEnv.string("DATABASE_PASSWORD")
         }
       };
+      console.log(JSON.stringify(teste));
+
+      return teste;
     } catch (err) {
       console.error(err);
     }
