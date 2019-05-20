@@ -13,8 +13,7 @@ export class Configuration {
   public get(): IConfig {
     try {
       DotEnv.config();
-
-      const teste = {
+      return {
         server: {
           name: GetEnv.string("SERVICE_NAME"),
           port: GetEnv.int("SERVICE_PORT"),
@@ -29,9 +28,6 @@ export class Configuration {
           password: GetEnv.string("DATABASE_PASSWORD")
         }
       };
-      console.log(JSON.stringify(teste));
-
-      return teste;
     } catch (err) {
       console.error(err);
     }
@@ -41,4 +37,4 @@ export class Configuration {
 export default Configuration.Instance.get();
 
 // Used to execute db migrations
-module.exports = Configuration.Instance.get();
+module.exports.db = Configuration.Instance.get().db;
