@@ -1,4 +1,5 @@
-import { Sequelize, SequelizeOptions } from "sequelize-typescript";
+import { Sequelize } from "sequelize-typescript";
+import { Options } from "sequelize/types";
 import { UserDb } from "./models";
 
 import config from "../lib/environment/configuration";
@@ -9,7 +10,8 @@ export class Database {
   private sequelize: Sequelize;
 
   constructor() {
-    this.sequelize = new Sequelize(config.db as SequelizeOptions);
+    console.log("--------------------->>>> ", JSON.stringify(config.db, undefined, 2));
+    this.sequelize = new Sequelize(config.db as Options);
     this.sequelize.addModels([
       UserDb // TODO(mobotelho) if the database grows too much, this wont be maintainable
     ]);
