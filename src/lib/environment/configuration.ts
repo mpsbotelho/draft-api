@@ -16,7 +16,7 @@ export class Configuration {
       return {
         server: {
           name: GetEnv.string("SERVICE_NAME"),
-          port: GetEnv.int("SERVICE_PORT"),
+          port: GetEnv.int("SERVICE_PORT", process.env.PORT || 3000),
           apiKey: GetEnv.string("API_KEY")
         },
         db: {
