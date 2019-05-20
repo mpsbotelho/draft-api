@@ -13,6 +13,7 @@ export class Configuration {
   public get(): IConfig {
     try {
       DotEnv.config();
+      console.log(JSON.stringify(process.env));
       return {
         server: {
           name: GetEnv.string("SERVICE_NAME"),
