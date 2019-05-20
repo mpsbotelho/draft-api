@@ -1,2 +1,2 @@
-web: npx sequelize db:migrate --env db
+release: node_modules/.bin/sequelize db:migrate --env db
 web: node bin/start.js
