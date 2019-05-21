@@ -1,4 +1,5 @@
 import * as Express from "express";
+import * as BodyParser from "body-parser";
 import Routes from "./routes";
 import config from "./shared/environment/configuration";
 import { Database } from "./db/database";
@@ -33,6 +34,7 @@ export class Server {
     }
 
     private loadConfiguration(): void {
+        this.express.use(BodyParser.json());
         this.express.use("/", RouterMiddleware.apiKeyValidator, Routes);
     }
 }
