@@ -15,6 +15,7 @@ export class Configuration {
       DotEnv.config();
       return {
         server: {
+          environment: GetEnv.string("ENVIRONMENT"),
           name: GetEnv.string("SERVICE_NAME"),
           port: GetEnv.int("SERVICE_PORT", process.env.PORT || 3000),
           apiKey: GetEnv.string("API_KEY")
