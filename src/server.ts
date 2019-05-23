@@ -3,7 +3,7 @@ import * as BodyParser from "body-parser";
 import Routes from "./routes";
 import config from "./shared/environment/configuration";
 import { Database } from "./db/database";
-import { RouterMiddleware } from "./shared/middlewares/router-middleware";
+import { RouterMiddleware, ErrorHandler } from "./shared/middlewares/";
 
 export class Server {
 
@@ -36,5 +36,6 @@ export class Server {
     private loadConfiguration(): void {
         this.express.use(BodyParser.json());
         this.express.use("/", RouterMiddleware.apiKeyValidator, Routes);
+        this.express.use(ErrorHandler.errorMiddleware);
     }
 }

@@ -1,4 +1,5 @@
 export interface IConfigServer {
+  environment: string;
   name: string;
   port: number;
   apiKey: string;

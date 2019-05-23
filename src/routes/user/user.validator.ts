@@ -1,7 +1,8 @@
 import * as Joi from "joi";
+import { Request, Response, NextFunction } from "express";
 
 export class UserValidator {
-  public static async postValidator(req, res, next): Promise<Error> {
+  public static async postValidator(req: Request, res: Response, next: NextFunction): Promise<void> {
     return Joi.validate(
       // Current request
       req.body,
