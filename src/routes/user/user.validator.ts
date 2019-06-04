@@ -19,4 +19,21 @@ export class UserValidator {
         next(err);
       });
   }
+
+  public static async loginValidator(req: Request, res: Response, next: NextFunction): Promise<void> {
+    return Joi.validate(
+      // Current request
+      req.body,
+      // Request schema
+      Joi.object().keys({
+        email: Joi.string().email().required(),
+        password: Joi.string().invalid("").required(),
+      }).required())
+      .then(() => next())
+      .catch(err => {
+        // TODO error handler
+        console.error(JSON.stringify(err));
+        next(err);
+      });
+  }
 }
